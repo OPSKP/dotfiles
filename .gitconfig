@@ -1,0 +1,145 @@
+[filter "lfs"]
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+
+
+[alias]
+  # LOG FORMATS
+  # Oneline Pretty Log Format: commitHash YYYY-MM-DD Commit Message [Author|email]
+  l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%C(cyan)\\ [%cn|%ce]" --decorate --date=short
+
+  # Format: * commitHash  Commit Message. 4 weeks ago by Author
+  lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen%ar%Creset by %C(yellow)%an%Creset' --abbrev-commit
+
+  # Oneline Log format
+  ll = log --oneline
+
+  ## Detailed Log Format (Last 10 commits)
+  lf = log --name-status -10
+
+  # Log (filtered by author) in the above format
+  la = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=short --author
+
+  # Log in Graphical / Ladder format
+  lad = log --graph --decorate --name-status 
+  # Optionally pass --all to view all branches
+
+
+  # STATUS
+  s = status
+  st = status -s
+
+  # STASH
+  sl = stash list
+  sp = stash pop
+
+
+  # Add Files to staging
+  a = add
+  ap = add -p
+
+  # Diff changes
+  d = diff
+  # ds = diff --stat # TODO: Test
+  ds = diff --staged
+  dc = diff --cached
+  dw = diff --color-words
+
+  # Commit staged files
+  c = commit --verbose
+  ca = commit -a --verbose
+  cm = commit -m
+  cam = commit -a -m
+  m = commit --amend --verbose
+
+  # Merge
+  m = merge
+  ma = merge --abort
+
+  # Show Config
+  cf = config --list --local
+  cfg = config --global -l
+  cfa = config --list
+
+  # Remotes
+  v = remote -v
+
+  # List branches (sorted by last modified)
+  b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+  br = branch -r # Remote branches only
+  ba = branch -a # All branches (local and remote)
+
+
+  # BE CAUTIOUS - Delete a local branch
+  bd = branch -d # Politely ask git to delete a local branch
+  bdf = branch -D # Forcibly delete a local branch
+
+  # Checkout to branch / Create branch
+  co = checkout
+  cob = checkout -b
+  cop = checkout -  # Checkout to previous branch
+  # or alternatively:  
+  # cop = checkout @{-1}
+
+  # Fetch
+  fa = fetch --all
+
+  # git please =  --force-with-lease (checks your local copy of the ref is up-to-date before overwriting it)
+  please = push --force-with-lease
+
+
+  # BE CAUTIOUS - Reset Hard
+  rh = reset --hard HEAD
+
+  # BE CAUTIOUS - Clean untracked files and folders
+  cc = clean -fd
+
+  # Add, Stash, Pull (Quick Pull)
+  as = "!git add -A && git ss"
+  asp = "!git add -A && git ss && git pull"
+
+  # List Aliases
+  # For Windows
+  # a = !git config --list | findstr "alias"
+  # For Linux / Mac
+  a = "!git config -l | grep alias | cut -c 7-"
+
+  # Edit Config using default editor
+  ec = config --global -e
+
+  # Undo Last commit (only if not pushed)
+  undo = reset --soft HEAD~
+
+  # Experimental Aliases
+  # Stash staged files only
+  ss = "!f() { default=$(date '+Staged Stash: %Y-%m-%d %I:%M %p'); msg=${1-$default}; git stash push -m \"$msg\" -- $(git diff --staged --name-only); }; f"
+
+
+# Add colors
+[color]
+  ui = true
+  diff = auto
+
+# Avoid confusing merge commits with autorebase
+[branch]
+  autosetuprebase = always
+
+# Pull
+[pull]
+  rebase = false
+  ff = only
+
+# Push to the current branch by default
+[push]
+  default = current
+
+# Remove usage hints
+[advice]
+  statusHints = false
+
+# Show exact diff details instead of using a and b notation
+[diff]
+  mnemonicprefix = true
+
