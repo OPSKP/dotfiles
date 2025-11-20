@@ -1,0 +1,16 @@
+#!/bin/sh
+
+alias nv='node -v && npm -v'
+alias docker=podman
+alias ff='find . -type f -name '
+
+
+ver() {
+  echo "Fetching versions..."
+  node_version=$(node -v)
+  npm_version=$(npm -v)
+  yarn_version=$(yarn -v)
+  pnpm_version=$(pnpm -v)
+  bun_version=$(bun -v)
+  echo "node: $node_version  |  npm: $npm_version  |  yarn: $yarn_version |  pnpm: $pnpm_version |  bun: $bun_version"
+}
