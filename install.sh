@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Source file in dotfiles repo (copied to home directory by github)
-ALIASES_SOURCE="$HOME/.aliases"
-
-# Target shell config file (default for Codespaces)
+DOTFILES_DIR="/workspaces/.codespaces/.persistedshare/dotfiles"
+ALIASES_SOURCE="$DOTFILES_DIR/.aliases"
 SHELL_CONFIG="$HOME/.zshrc"
 
 echo "--- Running dotfiles install script ---"
@@ -11,7 +9,6 @@ echo "--- Running dotfiles install script ---"
 # 1. Ensure the aliases file is present
 if [[ ! -f "$ALIASES_SOURCE" ]]; then
     echo "❌ Error: $ALIASES_SOURCE not found in home directory after cloning dotfiles."
-    exit 1
 fi
 
 # 2. Append the source command to the existing .zshrc file
