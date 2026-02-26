@@ -1,0 +1,64 @@
+{
+    "editor.fontSize": 14,
+    "editor.renderWhitespace": "trailing",
+    "editor.tabSize": 2,
+    "editor.minimap.enabled": false,
+    "editor.minimap.autohide": true,
+    "editor.fontFamily": "'Fira Code', 'Cascadia Code',Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.wordWrap": "on",
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.autofetch": true,
+    "terminal.integrated.fontSize": 14,
+    "files.exclude": {
+        "**/node_modules/*": true
+    },
+    "redhat.telemetry.enabled": false,
+    "git.confirmSync": false,
+    "[env]": {
+        "workbench.editor.languageDetection": false
+    },
+    "files.associations": {
+        ".env*": "properties"
+    },
+    "vsicons.dontShowNewVersionMessage": true,
+    "git.openRepositoryInParentFolders": "never",
+    "extensions.ignoreRecommendations": true,
+    "window.confirmSaveUntitledWorkspace": false,
+    "explorer.sortOrder": "modified",
+    "explorer.confirmDragAndDrop": false,
+    "database-client.autoSync": true,
+    "window.confirmBeforeClose": "always",
+    "git.blame.statusBarItem.enabled": true,
+    "git.blame.editorDecoration.enabled": false,
+    "git.enableCommitSigning": true,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "atlascode.jira.todoIssues.enabled": false,
+    "atlascode.bitbucket.statusbar.enabled": false,
+    "atlascode.bitbucket.statusbar.showLogin": false,
+    "atlascode.bitbucket.statusbar.showProduct": false,
+    "atlascode.bitbucket.statusbar.showUser": false,
+    "atlascode.rovodev.enabled": false,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.panel.defaultLocation": "right",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none",
+    "workbench.editorAssociations": {
+        "*.svg": "default"
+    },
+    "workbench.editor.languageDetection": true,
+    "diffEditor.ignoreTrimWhitespace": true
+}
